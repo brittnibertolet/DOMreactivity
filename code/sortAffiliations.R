@@ -21,7 +21,7 @@ sortAffiliations=function(file, n, GNout, GSout, dir="bibs"){
   ncites=as.numeric(gsub("\\}", "", ncites))
   
   # Convert to dataframe with a grouping factor
-  aff=data.frame(bibID, aff, citation=1:n, ncites)
+  aff=data.frame(bibID, aff, citation=1:n, ncites, stringsAsFactors = F)
   
   # Seperate the entries that have multiple affiliations 
   aff=aff %>% mutate(aff = strsplit(aff, ";")) %>%
